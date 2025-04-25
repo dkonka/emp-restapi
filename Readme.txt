@@ -1,31 +1,24 @@
 API Call to add an employee
 ===========================
-$ curl -X POST http://localhost:5000/employee -H "Content-Type: application/json" -d '{"id":1, "name":"Alice", "base_salary":50000, "bonus":5000}'
+$ curl --location 'http://127.0.0.1:5000/employee' --header 'Content-Type: application/json' --data '{"name": "konka", "base_salary": 50, "bonus": 100}'
 
 To update the salary
 =====================
-$ curl -X PUT http://localhost:5000/employee/<<employee id>> -H "Content-Type: application/json" -d '{"base_salary":55000}'
+$ curl --location --request PUT 'http://127.0.0.1:5000/employee/1' --header 'Content-Type: application/json' --data '{"base_salary": 100, "bonus": 200}'
 
-Example:
-$ curl -X PUT http://localhost:5000/employee/1 -H "Content-Type: application/json" -d '{"base_salary":55000}'
 
 To calculate salary
 ====================
-$ curl http://localhost:5000/employee/<<employee id>>/salary
+$ curl --location 'http://127.0.0.1:5000/employee/1/salary'
 
-Example:
-$ curl http://localhost:5000/employee/1/salary
 
 To delete employee record
 ==========================
-$ curl -X DELETE http://localhost:5000/employee/<<employee id>>
+$ curl --location --request DELETE 'http://127.0.0.1:5000/employee/1'
 
-Example:
-$ curl -X DELETE http://localhost:5000/employee/1
 
-To list all the employees added
-================================
-$ curl http://localhost:5000/employees
+options Call
+$ curl --location --request OPTIONS 'http://127.0.0.1:5000/employee/1'
 
 
 
